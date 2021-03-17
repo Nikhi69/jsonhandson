@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+  <div class="container">
+    
+      
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0044cc;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Movie Cruiser</a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="/">Movies</a>
+         <a class="nav-link" href="/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+<div>
+    <h1>Login</h1>
+<form name="myForm" (ngSubmit)="handleLogin()">
+<div class="container">
+    <!-- <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div> -->
+    <div>
+        UserName:<input type="text" name="username" class="form-control" [(ngModel)]='username'>
+        Password:<input type="password" name="password" class="form-control" [(ngModel)]='password' >
+        <button class="btn btn-success" type="submit" >Login</button>
+    </div>
+</div>
+</form>
+</div>
+</div>
+</body>
+</html>

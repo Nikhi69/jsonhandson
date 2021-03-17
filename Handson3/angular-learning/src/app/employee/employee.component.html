@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <p><b>Employee Details</b></p>
+<p>ID:{{emp.id}}</p>
+<p>Name:{{emp.name}}</p>
+<p>Salary:{{emp.salary|currency:'INR'}}</p>   
+<div *ngIf="emp.permanent==true">
+    <p>Permanent:{{emp.permanent}}</p>
+</div>
+<div *ngIf="emp.permanent==false">
+    <p>Permanent:{{emp.permanent}}</p>
+</div>
+<p>Department Id:{{emp.dept.id}}</p>
+<p id="departmentName">Department Name:{{emp.dept.name}}</p>
+<p>skills</p>
+<p>skill-id&nbsp;&nbsp;skill-name</p>
+<p *ngFor="let skill of skills">{{skill.id}} &nbsp;&nbsp;&nbsp;&nbsp;  {{skill.value}}</p>
+<p>Date of birth:{{emp.dateOfBirth|date:'shortDate'}}</p>
+</body>
+</html>

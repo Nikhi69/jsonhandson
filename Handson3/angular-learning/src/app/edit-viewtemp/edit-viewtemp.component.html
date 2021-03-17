@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h3><b>Edit Employee</b></h3>
+</head>
+<body>
+    <form #empForm="ngForm" (ngSubmit)="onSubmit()" >
+        <div class="block">
+        <div class="form-group">
+        <label for="name"><b>Name</b></label><br>
+        <input  required minlength="2" maxlength="10" type="text" id="name" name="name" [(ngModel)]="employee.name" #name="ngModel">
+        </div> 
+        <p *ngIf="name.errors?.required">name required</p>
+        <p *ngIf="name.errors?.minlength">name should have minimum 2 characters</p>
+        <p *ngIf="name.errors?.maxlength">name should have max 10 characters</p>
+        <div>
+            <label for="salary"><b>Salary</b></label><br>
+            <input required maxlength="10" type="text" id="salary" name="salary" [(ngModel)]="employee.salary" #salary="ngModel">
+        </div><br>
+        <div class="radio"><label for=""><b>Is permanent or not?</b><br>
+            <input type="radio" name="permanent" value="True" [(ngModel)]="employee.permanent">Yes
+            <input type="radio" name="permanent" value="False" [(ngModel)]="employee.permanent">No
+        </label>
+        </div>
+        <div class="form-group">
+            <label><b>Department</b></label><br>
+            <select ngModel (change)="myDep($event)" name="department" id="department" clas="form-controll">
+                <option *ngFor="let dept of departments" [id]="dept.name" [value]="dept.id">{{dept.name}}</option>
+
+            </select>
+        </div>
+     <button type="submit" [disabled]="!empForm.valid">Save</button>
+
+       </div>
+        <div class="block">
+            <strong>Employee Model</strong><br>
+            <pre>{{employee | json }}</pre>
+        </div>
+        <div class="block">
+            <strong>Angular Generated Form Model</strong><br>
+            <pre>{{empForm.value | json}}</pre>
+</div>        
+    </form>
+</body>
+</html>
+
+
+
+

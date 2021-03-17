@@ -1,0 +1,9 @@
+let emp=`{
+    "firstname":"John",
+    "lastname":"Stoke",
+    "salary":5200,
+    "permanentstaff":"true"
+    "department":[
+        {"departmentid":3,"departmentname":"payroll"}
+    ]
+}`;

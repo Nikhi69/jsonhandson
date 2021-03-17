@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h3><b>Edit Employee</b></h3>
+</head>
+<body>
+    <form [formGroup]="empForm" (ngSubmit)="onSubmit()" >
+        <div class="block">
+        <div class="form-group">
+        <label for="name">name</label><br>
+         <input type="text" formControlName="name">
+         <p *ngIf="name.errors?.required">name required</p>
+        <p *ngIf="name.errors?.minlength">name should have minimum 2 characters</p>
+        <p *ngIf="name.errors?.maxlength">name should have max 10 characters</p>
+        <div>
+            <label for="salary"><b>Salary</b></label><br>
+            <input type="text" id="salary" name="salary" formControlName="salary" >
+        </div><br>
+        <div class="radio"><label for=""><b>Is permanent or not?</b><br>
+            <input type="radio" name="permanent" [value]=true formControlName="permanent">Yes
+            <input type="radio" name="permanent" [value]=false formControlName="permanent">No
+        </label>
+        </div>
+        <div>
+            <label><b>Department</b></label><br>
+            <select formControlName="departments">
+                <option *ngFor="let department of departments" 
+        
+                       [ngValue]="department" 
+                    [selected]="department.id === employee.dept.id" >
+
+                    {{department.name}}
+                </option>
+            </select>
+        </div><br>
+        <button type="submit" [disabled]="!empForm.valid">Save</button>
+    </div>
+</div>
+    <div class="block">
+        <strong>Employee Model</strong><br>
+        <pre>{{employee | json }}</pre>
+    </div>
+    <div class="block">
+        <strong>Angular Generated Form Model</strong><br>
+        <pre>{{empForm.value | json}}</pre>
+</div>        
+   
+
+
+    </form>
+</body>
+</html>
+

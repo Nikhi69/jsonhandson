@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <h3><b>Edit Employee</b></h3>
+</head>
+<body>
+    <form>
+       <div class="form-group">
+        <label for="name">name</label><br>
+        <input required minlength="2" maxlength="10" type="text" id="name" name="name" [(ngModel)]="employee.name" #name="ngModel"></div> {{name.value}}
+        <p *ngIf="name.errors?.required">name required</p>
+        <p *ngIf="name.errors?.minlength">name should have minimum 2 characters</p>
+        <p *ngIf="name.errors?.maxlength">name should have max 10 characters</p>
+       <div>name.invalid - {{name.invalid}}</div>
+ <div>name.touched - {{name.touched}}</div>
+<div>name.dirty - {{name.dirty}}</div>
+<div>name.errors.required - {{name.errors?.required}}</div>
+<div>name.errors.minlength - {{name.errors?.minlength | json}}</div>
+    </form>
+</body>
+</html>

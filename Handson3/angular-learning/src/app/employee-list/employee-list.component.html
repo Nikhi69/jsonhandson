@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Employees List</h3>
+    <div class="container">
+    <div class="form-outline col-sm-6">
+        <label for="search" >Search</label>
+        <input [(ngModel)]="searchKey" (input)="search()" type="text" id="search" class="form-control" placeholder="Find by name">
+    </div></div><br>
+    <br>
+    <br>
+    <!-- <div class="container">
+        <div class="col-sm-6">
+            
+            <div class="col-sm-6 mb-lg-3 border border-primary" *ngFor="let emp of employeeList">
+                <div>{{emp.name}}</div>
+                <div>{{emp.salary|currency:'INR'}}</div>
+                <a [routerLink]="['#',emp.id]">Edit</a>
+       
+        </div>
+    </div>
+</div> -->
+<app-employee-info [employee]="employee" *ngFor="let employee of employeeList"></app-employee-info>
+</body>
+</html>
